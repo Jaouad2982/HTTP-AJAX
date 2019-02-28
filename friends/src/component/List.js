@@ -1,13 +1,16 @@
 import React from "react"
 // import faker from "faker"
+import {Link} from "react-router-dom"
 import "./List.css"
 const List = (props) =>{
+
 
     return (
         <div >
             {
                 props.friendsList.map(friend=>
                     (
+                      <Link to={`/list/${friend.id}`} key={friend.id}>
                       <div className="container">
                         <div key={friend.id} >
                             <div className="ui card ">
@@ -23,6 +26,7 @@ const List = (props) =>{
                             </div>           
                         </div>
                       </div>
+                      </Link>
                     )
                 )
             }

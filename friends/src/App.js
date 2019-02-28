@@ -4,6 +4,7 @@ import {Route,Link} from "react-router-dom";
 import List from "./component/List"
 import Home from "./component/Home"
 import Form from "./component/Form"
+import Person from "./component/Person"
 import './App.css';
 
 class App extends Component {
@@ -69,6 +70,7 @@ class App extends Component {
           <Route path="/form" exact render={(props)=><Form {...props} 
                                             fiendsList={this.state.friendsList} 
                                             addContent={this.addContentHandler} />} />
+          <Route path="/list/:id" exact render={(props)=> <Person  {...props} friendsList={this.state.friendsList} />} />
       </div>
     );
   }
