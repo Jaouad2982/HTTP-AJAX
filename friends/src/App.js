@@ -35,27 +35,27 @@ class App extends Component {
       })
     }
 
-    addContentHandler = ()=>{
-      const newProfile = {
-          name : this.setState.name,
-          age :this.state.age,
-          email:this.state.age
-      }
+    // addContentHandler = ()=>{
+    //   const newProfile = {
+    //       name : this.setState.name,
+    //       age :this.state.age,
+    //       email:this.state.age
+    //   }
 
-      this.setState({
-        friendsList :[...this.state.friendsList, newProfile],
-        name: " ",
-        age :" ",
-        email :" "
-      })
-    }
+    //   this.setState({
+    //     friendsList :[...this.state.friendsList, newProfile],
+    //     name: " ",
+    //     age :" ",
+    //     email :" "
+    //   })
+    // }
 
-    changeHandler =(e)=>{
-      e.preventDefault()
-      this.setState({
-        [e.target.name] : e.target.value
-      })
-    }
+    // changeHandler =(e)=>{
+    //   e.preventDefault()
+    //   this.setState({
+    //     [e.target.name] : e.target.value
+    //   })
+    // }
 
   render() {
     return (
