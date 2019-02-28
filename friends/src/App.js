@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios"
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Route,Link} from "react-router-dom";
 import List from "./component/List"
 import Home from "./component/Home"
+import Form from "./component/Form"
 import './App.css';
 
 class App extends Component {
@@ -58,14 +59,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Route path="/" exact Component={Home}/>
-          <Route path="/list" exact render={()=><List friendsList={this.state.friendsList} />} />
-          <form onSubmit={this.addContentHandler} >
-            <input type="text" name="name" placeholder="Enter name" />
-            <input type="text" name="age" placeholder="Enter your age" />
-            <input type="text" name="email" placeholder="Enter your email" /> 
-            <button type="submit" > Add </button>       
-          </form>
+          <nav>
+          <Link to="/">Home</Link> <br/>
+          <Link to="/list">List of friends</Link> <br/>
+          <Link to="/form">Form</Link>
+          </nav>
+          <Route path="/" exact component={Home}/>
+          <Route path="/list" exact render={(props)=><List {...props} friendsList={this.state.friendsList} />} />
+          <Route path="/form" exact render={(props)=><Form {...props} 
+                                            fiendsList={this.state.friendsList} 
+                                            addContent={this.addContentHandler} />} />
       </div>
     );
   }

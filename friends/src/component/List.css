@@ -4,3 +4,27 @@
  align-items: center;
  margin-bottom: 1%;
 }
+
+.form {
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+}
+
+.form > input{
+    width:40%;
+    margin: 2% 0 0 2%;
+    padding: 1%;
+    border-radius: 15%;
+    box-shadow: 2px 4px gray;
+}
+
+.form > button {
+    padding: 1% 1%;
+    width:10%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 4%;
+}
