@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios"
-import faker from "faker"
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import List from "./component/List"
+import Home from "./component/Home"
 import './App.css';
 
 class App extends Component {
@@ -43,8 +44,7 @@ class App extends Component {
         friendsList :[...this.state.friendsList, newProfile],
         name: " ",
         age :" ",
-        email :" ",
-        img : faker.avatar()
+        email :" "
       })
     }
 
@@ -58,12 +58,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <List  friendsList = {this.state.friendsList} />
+          <Route path="/" exact Component={Home}/>
+          <Route path="/list" exact render={()=><List friendsList={this.state.friendsList} />} />
           <form onSubmit={this.addContentHandler} >
             <input type="text" name="name" placeholder="Enter name" />
             <input type="text" name="age" placeholder="Enter your age" />
             <input type="text" name="email" placeholder="Enter your email" /> 
-  
             <button type="submit" > Add </button>       
           </form>
       </div>
