@@ -12,9 +12,6 @@ class App extends Component {
       super(props)
       this.state = {
         friendsList : [],
-        name : " ",
-        age : " ",
-        email: " "
       }
 
     }
@@ -32,6 +29,17 @@ class App extends Component {
       })
       .catch(err=>{
 
+      })
+    }
+
+    addInfo = (e,info)=>{
+      e.preventDefault();
+      axios.post("http://localhost:5000/friends",info)
+      .then(res=>{
+        console.log(res)
+      })
+      .catch(err=>{
+        console.log(err)
       })
     }
 
@@ -69,7 +77,8 @@ class App extends Component {
           <Route path="/list" exact render={(props)=><List {...props} friendsList={this.state.friendsList} />} />
           <Route path="/form" exact render={(props)=><Form {...props} 
                                             fiendsList={this.state.friendsList} 
-                                            addContent={this.addContentHandler} />} />
+                                            addInfo={this.addInfo}
+                                            />} />
           <Route path="/list/:id" exact render={(props)=> <Person  {...props} friendsList={this.state.friendsList} />} />
       </div>
     );
